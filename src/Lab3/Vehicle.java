@@ -1,15 +1,54 @@
 package Lab3;
 
 public class Vehicle {
-    String brand;
-    String model;
-    int year;
+    private String brand;
+    private String model;
+    private int year;
+    static int count;
+
+    public static void increment()
+    {
+        count  = count + 1;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     // Constructor with brand only
     public Vehicle(String brand) {
         this.brand = brand;
         this.model = "Unknown";
         this.year = -1;
+        count = count + 1;
     }
 
     // Constructor with brand and model
@@ -17,14 +56,15 @@ public class Vehicle {
         this.brand = brand;
         this.model = model;
         this.year = -1;
+        count = count + 1;
     }
 
-    // Constructor with brand, model, and year
-    public Vehicle(String brand, String model, int year) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-    }
+//    // Constructor with brand, model, and year
+//    public Vehicle(String brand, String model, int year) {
+//        this.brand = brand;
+//        this.model = model;
+//        this.year = year;
+//    }
 
     // Method to display vehicle details
     public void displayVehicleInfo() {
@@ -46,6 +86,7 @@ public class Vehicle {
 }
 class VehicleTest {
     public static void main(String[] args) {
+//        System.out.println(Vehicle.brand);
 //        // Experiment 1 Test code
 //        // Create vehicles using different constructors
 //        Vehicle v1 = new Vehicle("Toyota");
@@ -62,22 +103,26 @@ class VehicleTest {
 ////        v2.displayVehicleInfo();
 //        v3.displayVehicleInfo();
 //        v4.displayVehicleInfo();
-//         Experiment 3 Test code
-        Vehicle car1 = new Vehicle("Toyota", "Camry", 2020);
-        Vehicle car2 = new Vehicle("Toyota", "Camry", 2020);
-        Vehicle car3 = new Vehicle("Honda", "Accord", 2019);
-        if(car1==car2)
-            System.out.println("Equal");
-        else
-            System.out.println("Not equal");
 
-        if(car1.equals(car2))
-            System.out.println("Equal");
-        else
-            System.out.println("Not equal");
+//         Experiment 3 Test code
+//        Vehicle car1 = new Vehicle("Toyota", "Camry", 2020);
+//        Vehicle car2 = new Vehicle("Toyota", "Camry", 2020);
+//        Vehicle car3 = new Vehicle("Honda", "Accord", 2019);
+//        if(car1==car2)
+//            System.out.println("Equal");
+//        else
+//            System.out.println("Not equal");
+//
+//        if(car1.equals(car2))
+//            System.out.println("Equal");
+//        else
+//            System.out.println("Not equal");
 
 //        // Check if two vehicles are equal using the overridden equals method
 //        System.out.println("Are car1 and car2 equal? " + car1.equals(car2));  // Expected: true
 //        System.out.println("Are car1 and car3 equal? " + car1.equals(car3));  // Expected: false
+        Vehicle.count = 0;
+        System.out.println(Vehicle.count);
+
     }
 }
