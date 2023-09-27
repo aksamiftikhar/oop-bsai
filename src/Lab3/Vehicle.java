@@ -1,5 +1,7 @@
 package Lab3;
 
+import java.util.Scanner;
+
 public class Vehicle {
     private String brand;
     private String model;
@@ -65,7 +67,21 @@ public class Vehicle {
 //        this.model = model;
 //        this.year = year;
 //    }
+    public static void displayVInfo(Vehicle v1)
+    {
+        System.out.println(v1.getYear());
+        System.out.println(v1.getModel());
+    }
+    public static void displayVInfo(int year, String model, String brand)
+    {
+        Scanner sc = new Scanner(System.in);
 
+        Vehicle v1 = new Vehicle(brand, model);
+        v1.setYear(year);
+
+        System.out.println(v1.getYear());
+        System.out.println(v1.getModel());
+    }
     // Method to display vehicle details
     public void displayVehicleInfo() {
         System.out.println("Brand: " + brand + ", Model: " + model + ", Year: " + year);
@@ -85,7 +101,18 @@ public class Vehicle {
     }
 }
 class VehicleTest {
+    public static int count=0;
+    public static boolean addVehicle(Vehicle[] vArr, Vehicle v1)
+    {
+        vArr[count] = v1;
+        count = count + 1;
+    }
+
     public static void main(String[] args) {
+        Vehicle[] arr  = new Vehicle[5];
+
+        System.out.println(arr.length);
+
 //        System.out.println(Vehicle.brand);
 //        // Experiment 1 Test code
 //        // Create vehicles using different constructors
@@ -121,8 +148,39 @@ class VehicleTest {
 //        // Check if two vehicles are equal using the overridden equals method
 //        System.out.println("Are car1 and car2 equal? " + car1.equals(car2));  // Expected: true
 //        System.out.println("Are car1 and car3 equal? " + car1.equals(car3));  // Expected: false
-        Vehicle.count = 0;
-        System.out.println(Vehicle.count);
+//        Vehicle.count = 0;
+//        System.out.println(Vehicle.count);
 
+        // Lab 4:
+        int [] testArr = {1, 2, 3};
+        for( int i = 0;i<testArr.length;i++)
+        {
+            testArr[i] += 1;
+            System.out.println(testArr[i]);
+        }
+        for( int t: testArr)
+            t += 1;
+
+        for(int t: testArr)
+        {
+            System.out.println(t);
+        }
+
+        Vehicle[] vArr = new Vehicle[3];
+        vArr[0] = new Vehicle("abc", "xyz");
+        vArr[1] = new Vehicle("abc1", "xyz");
+        vArr[2] = new Vehicle("abc2", "xyz");
+
+        Vehicle[] vArr2 = {
+                new Vehicle("bxcb", "sdf"),
+                new Vehicle("bxcb", "sdf")
+        };
+        System.out.println(vArr2[0].getYear());
+        updateYear(vArr2[0]);
+        System.out.println(vArr2[0].getYear());
+    }
+    static void updateYear(Vehicle v)
+    {
+        v.setYear(1000);
     }
 }
